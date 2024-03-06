@@ -9,10 +9,11 @@ function App() {
   const [isLoading, setIsLoading] = useState(true);
   const [tours, setTours] = useState([])
 
-  useEffect(async () => {
+  const getFetch = async () => {
     try {
       const respons = await fetch(url);
       const tours = await respons.json();
+      console.log(tours)
       setTours(tours)
       setIsLoading(false)
 
@@ -20,20 +21,26 @@ function App() {
       setIsLoading(false)
       console.log(error);
     }
+  }
+
+  useEffect(() => {
+    getFetch()
   }, [])
 
   if (isLoading) {
     return <div>
-      <Loading />
+      <main>
+        <Loading />
+      </main>
     </div>
   }
 
   return (
     <>
-      <section className='container'>
-        <h1>Our tours</h1>
+      <main>
         <Tours tours={tours} />
-      </section>
+        {/* <button onClick={() => setTours()} className='btn' type='button'>Refresh</button> */}
+      </main>
     </>
   )
 }
