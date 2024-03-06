@@ -54,7 +54,6 @@ function App() {
     <>
       <main>
         <Tours tours={tours} removeItem={removeItem} />
-        {/* <button onClick={() => setTours()} className='btn' type='button'>Refresh</button> */}
       </main>
     </>
   )
