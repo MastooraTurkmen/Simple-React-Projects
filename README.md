@@ -1,7 +1,9 @@
 # Simple React Projects
 
 1. **_Project One:_** Birthday Reminder
-1. **_Project Two:_** Tours
+2. **_Project Two:_** Tours
+3. **_Project Three:_** Reviews Person
+4. **_Project Four:_** Accordion
 
 ---
 
@@ -16,3 +18,17 @@
 ## Tours
 
 [Tours Project](https://my-react-tours-project.netlify.app/)
+
+---
+
+## Reviews
+
+[Reviews Person](https://react-reviews-random-person-project.netlify.app/)
+
+---
+
+## Accordion
+
+[Accordion](https://react-accordion-questions-project.netlify.app/)
+
+---
