@@ -10,7 +10,7 @@
 
 ## Birthday Reminder List
 
-[Birthday Reminder](https://react-birthday-reminder-list.netlify.app/)
+[Birthday Reminder Project](https://react-birthday-reminder-list.netlify.app/)
 
 - the Idea: [https://uidesigndaily.com/](https://uidesigndaily.com/posts/sketch-birthdays-list-card-widget-day-1042)
 
@@ -24,16 +24,20 @@
 
 ## Reviews
 
-[Reviews Person](https://react-reviews-random-person-project.netlify.app/)
+[Reviews Person Project](https://react-reviews-random-person-project.netlify.app/)
 
 ---
 
 ## Accordion
 
-[Accordion](https://react-accordion-questions-project.netlify.app/)
+[Accordion Project](https://react-accordion-questions-project.netlify.app/)
 
 ---
 
 ## Food Menu
 
-[Food Menu](https://react-food-menu-project.netlify.app/)
+[Food Menu Project](https://react-food-menu-project.netlify.app/)
+
+## Tabs
+
+[Tabs Project](https://the-react-abs-project.netlify.app/)
