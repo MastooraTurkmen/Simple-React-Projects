@@ -48,7 +48,6 @@
 
 [Sliders Project](https://react-sliders-project.netlify.app/)
 
+## Lorem Ipsum
 
-## Lorem Ipsum 
-
-[Lorem Ipsum Project]()
+[Lorem Ipsum Project](https://react-lorem-ipsums-project.netlify.app/)
