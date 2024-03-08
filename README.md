@@ -5,6 +5,8 @@
 3. **_Project Three:_** Reviews Person
 4. **_Project Four:_** Accordion
 5. **_Project Five:_** Food Menu
+6. **_Project Six:_** Sliders
+7. **_Project Seven:_** Lorem Ipsum
 
 ---
 
@@ -40,4 +42,13 @@
 
 ## Tabs
 
-[Tabs Project](https://the-react-abs-project.netlify.app/)
+[Tabs Project](https://the-react-tabs-project.netlify.app/)
+
+## Sliders
+
+[Sliders Project](https://react-sliders-project.netlify.app/)
+
+
+## Lorem Ipsum 
+
+[Lorem Ipsum Project]()
