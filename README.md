@@ -40,14 +40,22 @@
 
 [Food Menu Project](https://react-food-menu-project.netlify.app/)
 
+---
+
 ## Tabs
 
 [Tabs Project](https://the-react-tabs-project.netlify.app/)
+
+---
 
 ## Sliders
 
 [Sliders Project](https://react-sliders-project.netlify.app/)
 
+---
+
 ## Lorem Ipsum
 
 [Lorem Ipsum Project](https://react-lorem-ipsums-project.netlify.app/)
+
+---
