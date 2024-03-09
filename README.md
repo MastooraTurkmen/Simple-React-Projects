@@ -59,3 +59,9 @@
 [Lorem Ipsum Project](https://react-lorem-ipsums-project.netlify.app/)
 
 ---
+
+## Color Generator
+
+[Color Generator Project](https://react-unique-color-generator-project.netlify.app/)
+
+---
