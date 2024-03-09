@@ -37,13 +37,9 @@ function App() {
         </form>
       </section>
       <section className='colors'>
-        {list.map((color) => {
-          const { rbg, weight } = color;
+        {list.map((color, index, hexColor) => {
           return (
-            <div>
-              <h2>{rbg}</h2>
-              <p>{weight}</p>
-            </div>
+            <SingleColor hexColor={color.hex} {...color} key={index} index={index} />
           )
         })}
       </section>
