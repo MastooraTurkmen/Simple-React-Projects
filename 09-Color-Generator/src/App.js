@@ -8,7 +8,18 @@ function App() {
   const [error, setError] = useState(false)
   const [list, setList] = useState([])
 
-
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    try {
+      let colors = new Values(color).all(10)
+      setError(false)
+      setList(colors)
+      console.log(colors);
+    } catch (error) {
+      setError(true)
+      console.log(error)
+    }
+  }
 
   return (
     <>
