@@ -5,8 +5,10 @@
 3. **_Project Three:_** Reviews Person
 4. **_Project Four:_** Accordion
 5. **_Project Five:_** Food Menu
-6. **_Project Six:_** Sliders
-7. **_Project Seven:_** Lorem Ipsum
+6. **_Project Six:_** Tabs
+7. **_Project Seven:_** Sliders
+8. **_Project Eight:_** Lorem Ipsum
+9. **_Project Nine:_** Color Generator
 
 ---
 
