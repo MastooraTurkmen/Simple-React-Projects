@@ -36,7 +36,17 @@ function App() {
           <button className='btn' type='submit'>submite</button>
         </form>
       </section>
-     
+      <section className='colors'>
+        {list.map((color) => {
+          const { rbg, weight } = color;
+          return (
+            <div>
+              <h2>{rbg}</h2>
+              <p>{weight}</p>
+            </div>
+          )
+        })}
+      </section>
     </>
   )
 }
