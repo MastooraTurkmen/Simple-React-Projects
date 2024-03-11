@@ -3,7 +3,13 @@ import List from './List'
 import Alert from './Alert'
 
 function App() {
-  return <h2>grocery bud setup</h2>
+  const [name, setName] = useState('');
+  const [listm, setList] = useState([]);
+  const [isEditing, setIsEditing] = useState(false);
+  const [edit, setEdit] = useState(null)
+  const [alert, setAlert] = useState({ show: false, msg: "", tyep: "" });
+
+
 }
 
 export default App
