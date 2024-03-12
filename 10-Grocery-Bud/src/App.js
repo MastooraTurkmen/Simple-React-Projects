@@ -11,7 +11,7 @@ function App() {
 
   const handleSubmite = (e) => {
     e.preventDefault();
-    console.log('hello')
+
   }
 
   return (
@@ -32,10 +32,12 @@ function App() {
           </button>
         </div>
       </form>
-      <div className="grocery-container">
-        <List items={list} />
-        <button className='clear-btn'>clear item</button>
-      </div>
+      {list.length && (
+        <div className="grocery-container">
+          <List items={list} />
+          <button className='clear-btn'>clear item</button>
+        </div>
+      )}
     </section>
   )
 }
