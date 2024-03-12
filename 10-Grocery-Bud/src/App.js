@@ -4,20 +4,20 @@ import Alert from './Alert'
 
 function App() {
   const [name, setName] = useState('');
-  const [listm, setList] = useState([]);
+  const [list, setList] = useState([]);
   const [isEditing, setIsEditing] = useState(false);
   const [edit, setEdit] = useState(null)
   const [alert, setAlert] = useState({ show: false, msg: "", tyep: "" });
 
   const handleSubmite = (e) => {
-    e.preventDefault;
+    e.preventDefault();
     console.log('hello')
   }
 
   return (
     <section className='section-center'>
       <form className="grocery-form" onSubmit={handleSubmite}>
-        {alert.show && <List />}
+        {alert.show && <Alert />}
         <h3>grocery bud</h3>
         <div className="form-control">
           <input
@@ -33,7 +33,7 @@ function App() {
         </div>
       </form>
       <div className="grocery-container">
-        <List />
+        <List items={list} />
         <button className='clear-btn'>clear item</button>
       </div>
     </section>
