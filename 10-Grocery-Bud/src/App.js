@@ -14,6 +14,7 @@ const getLocalStrorageItem = () => {
 }
 
 function App() {
+
   const [name, setName] = useState('');
   const [list, setList] = useState(getLocalStrorageItem());
   const [isEditing, setIsEditing] = useState(false);
@@ -22,6 +23,7 @@ function App() {
 
   const handleSubmite = (e) => {
     e.preventDefault();
+
     if (!name) {
       showAlert(true, 'danger', 'please enter value')
       // display alert
@@ -38,6 +40,7 @@ function App() {
       setEditID(null);
       setIsEditing(false);
       showAlert(true, 'success', 'value changed')
+      
     } else {
       showAlert(true, 'success', 'Item added to the list')
       const newItem = { id: new Date().getTime().toString(), title: name }
