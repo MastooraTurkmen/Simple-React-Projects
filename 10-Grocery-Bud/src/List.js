@@ -15,7 +15,7 @@ const List = ({ items, removeItem }) => {
                 <FaEdit />
               </button>
               <button type='button' className='delete-btn'>
-                <FaTrash onClick={removeItem} />
+                <FaTrash onClick={() => removeItem(id)} />
               </button>
             </div>
           </article>
