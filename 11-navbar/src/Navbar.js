@@ -5,6 +5,19 @@ import logo from './logo.svg'
 
 const Navbar = () => {
   const [showLinks, setShowLinks] = useState(false);
+  const linksRef = useRef(null);
+  const linksContainerRef = useRef(null);
+
+  useEffect(() => {
+    const linksHeight = linksRef.current.getBoundingClientRect().height;
+
+    if (showLinks) {
+      linksContainerRef.current.style.height = `${linksHeight}px`
+    } else {
+      linksContainerRef.current.style.height = '0px'
+    }
+
+  }, [showLinks])
 
   return (
     <>
@@ -16,8 +29,8 @@ const Navbar = () => {
               <FaBars />
             </button>
           </div>
-          <div className={`${showLinks ? 'links-container show-container' : 'links-container'}`}>
-            <ul className="links">
+          <div className='links-container' ref={linksContainerRef}>
+            <ul className="links" ref={linksRef}>
               {links.map((item) => {
                 const { id, url, text } = item;
                 return <li key={id}>
