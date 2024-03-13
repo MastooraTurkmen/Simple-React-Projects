@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react'
-import { FaBars, FaTwitter, FaFacebook, FaInstagram } from 'react-icons/fa'
+import { FaBars, FaTwitter, FaFacebook, FaInstagram, FaDiscord } from 'react-icons/fa'
 import { links, social } from './data'
 import logo from './logo.svg'
 
@@ -44,6 +44,11 @@ const Navbar = () => {
             <li>
               <a target='_blank' href="https://www.instagram.com">
                 <FaInstagram />
+              </a>
+            </li>
+            <li>
+              <a target='_blank' href="https://www.instagram.com">
+                <FaDiscord />
               </a>
             </li>
           </ul>
