@@ -42,7 +42,7 @@ function App() {
             onChange={(e) => setName(e.target.value)}
           />
           <button type='submit' className='submit-btn'>
-            {isEditing ? "edit" : "sumbit"}
+            {isEditing ? "edit" : "submit"}
           </button>
         </div>
       </form>
