@@ -9,6 +9,7 @@
 7. **_Project Seven:_** Sliders
 8. **_Project Eight:_** Lorem Ipsum
 9. **_Project Nine:_** Color Generator
+10. **_Project Ten:_** Grocery Bud Complete
 
 ---
 
@@ -67,3 +68,7 @@
 [Color Generator Project](https://react-unique-color-generator-project.netlify.app/)
 
 ---
+
+## Grocery Bud Complete
+
+[Grocery Bud Complete Project](https://react-grocery-bud-complete-project.netlify.app/)
