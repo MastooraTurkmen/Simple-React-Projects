@@ -28,11 +28,11 @@ const Navbar = () => {
             {social.map((link) => {
               const { id, icon, url } = link;
               return (
-                <>
+                <div>
                   <li key={id}>
                     <a target='_blank' href={url}>{icon}</a>
                   </li>
-                </>
+                </div>
               )
             })}
 
