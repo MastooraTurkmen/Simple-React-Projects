@@ -2,8 +2,9 @@ import React, { useState, useEffect } from 'react'
 import List from './List'
 import Alert from './Alert'
 
+// get Local Storage
 
-const getLocalStrorageItem = () => {
+const getLocalStorageItem = () => {
   const list = localStorage.getItem('list');
   if (list) {
     return JSON.parse(list)
@@ -16,7 +17,7 @@ const getLocalStrorageItem = () => {
 function App() {
 
   const [name, setName] = useState('');
-  const [list, setList] = useState(getLocalStrorageItem());
+  const [list, setList] = useState(getLocalStorageItem());
   const [isEditing, setIsEditing] = useState(false);
   const [editID, setEditID] = useState(null)
   const [alert, setAlert] = useState({ show: false, msg: "", type: "" });
@@ -27,8 +28,10 @@ function App() {
     if (!name) {
       showAlert(true, 'danger', 'please enter value')
       // display alert
+
     } else if (name && isEditing) {
       // deal with edit
+
       setList(list.map((item) => {
         if (item.id === editID) {
           return { ...item, title: name }
@@ -40,7 +43,7 @@ function App() {
       setEditID(null);
       setIsEditing(false);
       showAlert(true, 'success', 'value changed')
-      
+
     } else {
       showAlert(true, 'success', 'Item added to the list')
       const newItem = { id: new Date().getTime().toString(), title: name }
@@ -62,6 +65,8 @@ function App() {
     showAlert(true, 'danger', 'item removed')
     setList(list.filter((item) => item.id !== id))
   }
+
+  // edit Item
 
   const editItem = (id) => {
     const items = list.find((item) => item.id === id);
