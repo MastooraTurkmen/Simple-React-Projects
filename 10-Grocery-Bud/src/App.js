@@ -7,11 +7,12 @@ function App() {
   const [list, setList] = useState([]);
   const [isEditing, setIsEditing] = useState(false);
   const [edit, setEdit] = useState(null)
-  const [alert, setAlert] = useState({ show: false, msg: "", tyep: "" });
+  const [alert, setAlert] = useState({ show: false, msg: "", type: "" });
 
   const handleSubmite = (e) => {
     e.preventDefault();
     if (!name) {
+      showAlert(true, 'danger', 'please enter value')
       // display alert
     } else if (name && isEditing) {
       // deal with edit
@@ -20,6 +21,10 @@ function App() {
       setList([...list, newItem])
       setName('')
     }
+  }
+
+  const showAlert = ( show = false, type = '', msg = '' ) => {
+    setAlert({ show, type, msg })
   }
 
   return (
