@@ -16,6 +16,17 @@ function App() {
       // display alert
     } else if (name && isEditing) {
       // deal with edit
+      setList(list.map((item) => {
+        if (item.id === editID) {
+          return { ...item, title: name }
+        }
+        return item
+      }))
+
+      setName('');
+      setEditID(null);
+      setIsEditing(false);
+      showAlert(true, 'success', 'value changed')
     } else {
       showAlert(true, 'success', 'Item added to the list')
       const newItem = { id: new Date().getTime().toString(), title: name }
@@ -39,10 +50,10 @@ function App() {
   }
 
   const editItem = (id) => {
-    const items = setList(list.find((item) => item.id === id))
+    const items = list.find((item) => item.id === id);
     setIsEditing(true)
     setEditID(id)
-    setName(items)
+    setName(items.title)
   }
 
   return (
