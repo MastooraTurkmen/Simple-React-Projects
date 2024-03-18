@@ -25,7 +25,7 @@ const Sidebar = () => {
           )
         })}
       </ul>
-      <ul className="social-links">
+      <ul className="social-icons">
         {social.map((link) => {
           const { id, url, icon } = link
           return (
