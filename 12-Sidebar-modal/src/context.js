@@ -12,4 +12,4 @@ const AppProvider = ({ children }) => {
 }
 
 
-export default { AppContext, AppProvider }
+export { AppContext, AppProvider }
