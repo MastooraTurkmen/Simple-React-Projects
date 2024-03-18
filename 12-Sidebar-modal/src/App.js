@@ -8,6 +8,7 @@ function App() {
     <>
       <Home />
       <Modal />
+      <Sidebar />
     </>
   )
 }
