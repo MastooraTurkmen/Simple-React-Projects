@@ -15,10 +15,10 @@ const AppProvider = ({ children }) => {
     }
 
     const openSidebar = () => {
-        isSidebarOpen(true)
+        setIsSidebarOpen(true)
     }
     const closeSidebar = () => {
-        isSidebarOpen(false)
+        setIsSidebarOpen(false)
     }
 
     return (
