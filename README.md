@@ -76,3 +76,7 @@
 ## Navbar
 
 [Navbar Project](https://react-nav-bar-project.netlify.app/)
+
+## Sidebar
+
+[Sidebar-menu Project](https://react-side-bar-modal-project.netlify.app/)
