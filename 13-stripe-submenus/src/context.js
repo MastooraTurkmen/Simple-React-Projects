@@ -1,4 +1,4 @@
-import React, { useState, useContext, createContext } from 'react'
+import React, { useState, useContext } from 'react'
 import sublinks from './data'
 
 const AppContext = React.createContext();
@@ -36,5 +36,5 @@ export const AppProvider = ({ children }) => {
 }
 
 export const useGlobalContext = () => {
-    useContext(AppContext)
+    return useContext(AppContext)
 }
