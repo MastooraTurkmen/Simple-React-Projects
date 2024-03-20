@@ -1,11 +1,11 @@
-import React, { useState, useContext } from 'react'
+import React, { useState, useContext, createContext } from 'react'
 import sublinks from './data'
 
 const AppContext = React.createContext();
 
 const AppProvidor = ({ children }) => {
     const [isSidebar, setIsSidebar] = useState(false);
-    const [isModalbar, setIsModal] = useState(false);
+    const [isSubmenu, setIsSubmenu] = useState(false);
 
     const openSidebar = () => {
         setIsSidebar(true)
@@ -14,19 +14,30 @@ const AppProvidor = ({ children }) => {
         setIsSidebar(false)
     }
 
-    const openModal = () => {
-        setIsModal(true)
+    const openSubmenu = () => {
+        setIsSubmenu(true)
     }
-    const closeModal = () => {
-        setIsModal(false)
+    const closeSubmenu = () => {
+        setIsSubmenu(false)
     }
 
     return (
-        <AppContext.Provider value={{}}>
+        <AppContext.Provider value={{
+            isSidebar,
+            isSubmenu,
+            openSidebar,
+            openSubmenu,
+            closeSubmenu,
+            closeSidebar
+        }}>
             {children}
         </AppContext.Provider>
     )
 }
 
 
-export { AppProvidor }
+const GlobalContext = () => {
+    useContext(AppContext)
+}
+
+export { AppProvidor, GlobalContext }
