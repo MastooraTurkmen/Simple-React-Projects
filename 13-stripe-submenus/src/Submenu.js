@@ -2,10 +2,18 @@ import React, { useState, useRef, useEffect } from 'react'
 import { useGlobalContext } from './context'
 
 const Submenu = () => {
-  const { isSubmenu } = useGlobalContext();
+  const { isSubmenu, location } = useGlobalContext();
+  const container = useRef(null);
+
+  useEffect(() => {
+    const submenu = container.current;
+    const { center, bottom } = location;
+    submenu.style.top = `${bottom}px`;
+    submenu.style.left = `${center}px`;
+  }, [location])
 
   return (
-    <aside className={`${isSubmenu ? 'submenu show' : 'submenu'}`}>
+    <aside ref={container} className={`${isSubmenu ? 'submenu show' : 'submenu'}`}>
       submenu
     </aside>
   )
