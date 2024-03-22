@@ -19,8 +19,8 @@ const AppProvider = ({ children }) => {
     dispatch({ type: 'CLEAR_CART' })
   }
 
-  const remove = () => {
-    dispatch({ type: 'REMOVE_CART' })
+  const remove = (id) => {
+    dispatch({ type: 'REMOVE_CART', payload: id })
   }
 
   return (
