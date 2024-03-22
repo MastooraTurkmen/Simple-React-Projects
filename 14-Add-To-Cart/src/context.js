@@ -1,18 +1,24 @@
 import React, { useState, useContext, useReducer, useEffect } from 'react'
 import cartItems from './data'
 import reducer from './reducer'
-// ATTENTION!!!!!!!!!!
-// I SWITCHED TO PERMANENT DOMAIN
+
 const url = 'https://course-api.com/react-useReducer-cart-project'
-const AppContext = React.createContext()
+const AppContext = React.createContext();
+
+const initionalComponent = {
+  loading: false,
+  total: 0,
+  cart: cartItems,
+  amount: 0
+}
 
 const AppProvider = ({ children }) => {
-  const [cart, setCart] = useState(cartItems)
+  const [state, dispatch] = useReducer(reducer, initionalComponent)
 
   return (
     <AppContext.Provider
       value={{
-        cart,
+        ...state
       }}
     >
       {children}
