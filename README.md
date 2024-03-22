@@ -10,6 +10,9 @@
 8. **_Project Eight:_** Lorem Ipsum
 9. **_Project Nine:_** Color Generator
 10. **_Project Ten:_** Grocery Bud Complete
+11. **_Project Eleven:_** Navbar
+12. **_Project Twelve:_** Sidebar Modal
+13. **_Project Thirteen:_** Stripe Submenu
 
 ---
 
@@ -73,10 +76,17 @@
 
 [Grocery Bud Complete Project](https://react-grocery-bud-complete-project.netlify.app/)
 
+---
+
 ## Navbar
 
 [Navbar Project](https://react-nav-bar-project.netlify.app/)
 
+---
+
 ## Sidebar
 
 [Sidebar-menu Project](https://react-side-bar-modal-project.netlify.app/)
+
+
+---
