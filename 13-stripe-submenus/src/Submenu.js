@@ -1,7 +1,8 @@
-import React, { useState, useRef, useEffect } from 'react'
-import { useGlobalContext } from './context'
+import React, { useState, useRef, useEffect } from 'react';
+import { useGlobalContext } from './context';
 
 const Submenu = () => {
+
   const { isSubmenu, location, page: { page, links } } = useGlobalContext();
   const container = useRef(null);
   const [columns, setColumns] = useState('col-2');
@@ -22,8 +23,6 @@ const Submenu = () => {
     }
 
   }, [location]);
-
-
 
   return (
     <aside ref={container} className={`${isSubmenu ? 'submenu show' : 'submenu'}`}>
