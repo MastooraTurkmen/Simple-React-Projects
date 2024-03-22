@@ -88,5 +88,8 @@
 
 [Sidebar-menu Project](https://react-side-bar-modal-project.netlify.app/)
 
-
 ---
+
+## Stripe Submenu
+
+[Stripe Submenu Project](https://react-stripe-submenus-project.netlify.app/)
