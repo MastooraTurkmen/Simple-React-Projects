@@ -7,26 +7,20 @@ const reducer = (state, action) => {
         return { ...state, cart: state.cart.filter((item) => item.id !== action.payload) }
     }
 
-    if (action.type === "INCREASE") {
-        let tempItem = state.cart.map((cartItem) => {
-            if (cartItem.id === action.payload) {
-                return { ...cartItem, amount: cartItem.amount + 1 }
-            }
-            return cartItem
-        })
-
-        return { ...state, cart: tempItem }
-    }
-
-    if (action.type === "DECREASE") {
-        let tempItem = state.cart.map((cartItem) => {
-            if (cartItem.id === action.payload) {
-                return { ...cartItem, amount: cartItem.amount - 1 }
+    if (action.type === 'TOGGLE_AMOUNT') {
+        let temCart = state.cart.map((cartItem) => {
+            if (cartItem.id === action.payload.id) {
+                if (action.payload.type === 'increase') {
+                    return { ...cartItem, amount: cartItem.amount + 1 }
+                }
+                if (action.payload.type === 'decrease') {
+                    return { ...cartItem, amount: cartItem.amount - 1 }
+                }
             }
             return cartItem
         }).filter((cartItem) => cartItem.amount !== 0)
 
-        return { ...state, cart: tempItem }
+        return { ...state, cart: temCart }
     }
 
     if (action.type === 'GET_TOTAL') {
