@@ -24,7 +24,7 @@ const reducer = (state, action) => {
                 return { ...cartItem, amount: cartItem.amount - 1 }
             }
             return cartItem
-        })
+        }).filter((cartItem) => cartItem.amount !== 0)
 
         return { ...state, cart: tempItem }
     }
