@@ -15,7 +15,7 @@
 13. **_Project Thirteen:_** Stripe Submenu
 14. **_Project Fourteen:_** Add To Cart
 15. **_Project Fifteen:_** Markdown
-15. **_Project Sixteen:_** Random
+16. **_Project Sixteen:_** Random
 
 ---
 
@@ -108,3 +108,9 @@
 ## Markdown
 
 [Markdown Project](https://react-simple-markdown-project.netlify.app/)
+
+---
+
+## Random Person
+
+[Randome Person Project](https://react-random-people-project.netlify.app/)
