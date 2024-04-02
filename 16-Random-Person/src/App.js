@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react'
 import {
   FaEnvelopeOpen,
@@ -20,7 +21,39 @@ function App() {
     console.log(e.target);
   }
 
-  
+  const getPeople = async () => {
+    const response = await fetch(url);
+    const data = await response.json();
+    const person = data.results[0];
+
+    const { first, last } = person.name;
+    const { email, phone } = person;
+    const { street: { number, name }, } = person.location;
+    const { age } = person.dob;
+    const { large: image } = person.picture;
+    const { login: { password }, } = person
+
+    const newPerson = {
+      email,
+      phone,
+      age,
+      image,
+      password,
+      name: `${first} ${last}`,
+      street: `${number} ${name}`
+    }
+
+    setValue(newPerson.name)
+    setPerson(newPerson)
+    setLoading(false);
+    setTitle('name');
+  }
+
+
+
+  useEffect(() => {
+    getPeople()
+  }, [])
 
   return (
     <main>
@@ -50,7 +83,7 @@ function App() {
               <FaLock />
             </button>
           </div>
-          <button className="btn" type='button'>
+          <button className="btn" type='button' onClick={getPeople}>
             {loading ? 'loading..' : 'random user'}
           </button>
         </div>
