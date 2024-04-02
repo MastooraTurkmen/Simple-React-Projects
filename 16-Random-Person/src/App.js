@@ -18,7 +18,11 @@ function App() {
   const [value, setValue] = useState('random person');
 
   const handleValue = (e) => {
-    console.log(e.target);
+    if (e.target.classList.contains('icon')) {
+      const newPerson = e.target.dataset.label;
+      setTitle(newPerson)
+      setValue(person[newPerson])
+    }
   }
 
   const getPeople = async () => {
@@ -48,8 +52,6 @@ function App() {
     setLoading(false);
     setTitle('name');
   }
-
-
 
   useEffect(() => {
     getPeople()
