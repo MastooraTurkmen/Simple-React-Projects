@@ -11,6 +11,7 @@ export const useFetch = () => {
     const data = await response.json()
     setData(data)
     setLoading(false)
+    paginate(data)
   }
 
   useEffect(() => {
