@@ -16,6 +16,7 @@
 14. **_Project Fourteen:_** Add To Cart
 15. **_Project Fifteen:_** Markdown
 16. **_Project Sixteen:_** Random Person
+17. **_Project Seventeen:_** Pagination
 
 ---
 
