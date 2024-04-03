@@ -115,3 +115,9 @@
 ## Random Person
 
 [Randome Person Project](https://react-random-people-project.netlify.app/)
+
+---
+
+## Pagination
+
+[Pagination Project](https://react-paginations-project.netlify.app/)
