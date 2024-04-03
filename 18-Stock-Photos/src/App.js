@@ -12,7 +12,7 @@ function App() {
   const fetchData = async () => {
     let url;
     try {
-      url = `${mainUrl}?client_id=fJIEIAp7KvuevajNm9EmtYa-kIQSzKJn6PhLxUi9E84`
+      url = `${mainUrl}?cleint_id=fJIEIAp7KvuevajNm9EmtYa-kIQSzKJn6PhLxUi9E84`
       const response = await fetch(url)
       const data = await response.json()
       console.log(data);
