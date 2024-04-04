@@ -11,16 +11,22 @@ function App() {
   const [photo, setPhoto] = useState([]);
 
   const fetchData = async () => {
+    setLoading(true)
     let url;
-    url = `${mainUrl}${clientID }`
+    url = `${mainUrl}${clientID}`
     try {
       const response = await fetch(url)
       const data = await response.json()
       console.log(data);
     } catch (error) {
       console.log(error);
+      setLoading(false)
     }
   }
+
+  useEffect(() => {
+    fetchData()
+  }, [])
 
   return <h2>stock photos starter</h2>
 }
