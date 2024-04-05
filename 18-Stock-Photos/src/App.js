@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { FaSearch } from 'react-icons/fa'
 import Photo from './Photo'
 
@@ -9,14 +9,15 @@ const searchUrl = `https://api.unsplash.com/search/photos/`
 function App() {
   const [loading, setLoading] = useState(false);
   const [photos, setPhotos] = useState([]);
-  const [pages, setPages] = useState(0);
-  const [query, setQuery] = useState('')
+  const [pages, setPages] = useState(1);
+  const [query, setQuery] = useState('');
+  const mounted = useRef(true)
 
   const fetchData = async () => {
     setLoading(true)
-    const urlPage = `&pages=${pages}`
-    const urlQuery = `&query=${query}`
     let url;
+    const urlPage = `&page=${pages}`
+    const urlQuery = `&query=${query}`
 
     if (query) {
       url = `${mainUrl}${clientID}${urlPage}${urlQuery}`
@@ -29,7 +30,7 @@ function App() {
       const data = await response.json()
       setPhotos((oldPage) => {
         if (query && pages === 1) {
-          return data.results
+          return data.results;
         } else if (query) {
           return [...oldPage, ...data.results]
         } else {
@@ -47,23 +48,21 @@ function App() {
   useEffect(() => {
     fetchData()
     // eslint-disable-next-line
-  }, [pages])
+  }, [pages]);
 
   useEffect(() => {
-    const scrollWindow = window.addEventListener('scroll', () => {
-      if (window.innerHeight + window.scrollY >= document.body.scrollHeight - 5) {
-        setPages((oldPages) => {
-          return oldPages + 1
-        })
-      }
-      // eslint-disable-next-line
-    });
-
-    return () => window.addEventListener('scroll', scrollWindow)
+    if (!mounted.current) {
+      mounted.current = true;
+      return;
+    }
   }, [])
 
   const handleSubmit = (e) => {
-    e.preventDefault()
+    e.preventDefault();
+    if (!query) return;
+    if (pages === 1) {
+      fetchData(1)
+    }
     setPages(1)
   }
 
@@ -86,6 +85,7 @@ function App() {
       <section className="photos">
         <div className="photos-center">
           {photos.map((image) => {
+            console.log(image);
             return <Photo key={image.id} {...image} />
           })}
         </div>
