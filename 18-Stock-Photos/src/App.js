@@ -1,56 +1,66 @@
-import React, { useState, useEffect, useRef } from 'react'
-import { FaSearch } from 'react-icons/fa'
-import Photo from './Photo'
+import React, { useState, useEffect, useRef } from 'react';
+import { FaSearch } from 'react-icons/fa';
 
-const clientID = `?client_id=${process.env.REACT_APP_ACCESS_KEY}`
-const mainUrl = `https://api.unsplash.com/photos/`
-const searchUrl = `https://api.unsplash.com/search/photos/`
+import Photo from './Photo';
+const clientID = `?client_id=${process.env.REACT_APP_ACCESS_KEY}`;
+const mainUrl = `https://api.unsplash.com/photos/`;
+const searchUrl = `https://api.unsplash.com/search/photos/`;
+
+// remove current scroll code
+// set default page to 1
+// setup two useEffects
+// don't run second on initial render
+// check for query value
+// if page 1 fetch images
+// otherwise setPage(1)
+// fix scroll functionality
 
 function App() {
   const [loading, setLoading] = useState(false);
   const [photos, setPhotos] = useState([]);
-  const [pages, setPages] = useState(1);
+  const [page, setPage] = useState(1);
   const [query, setQuery] = useState('');
-  const [newImages, setImages] = useState(false);
-  const mounted = useRef(true)
+  const mounted = useRef(false);
+  const [newImages, setNewImages] = useState(false);
 
-  const fetchData = async () => {
-    setLoading(true)
+  const fetchImages = async () => {
+    setLoading(true);
     let url;
-    const urlPage = `&page=${pages}`
-    const urlQuery = `&query=${query}`
+    const urlPage = `&page=${page}`;
+    const urlQuery = `&query=${query}`;
 
     if (query) {
-      url = `${searchUrl}${clientID}${urlPage}${urlQuery}`
+      url = `${searchUrl}${clientID}${urlPage}${urlQuery}`;
     } else {
-      url = `${mainUrl}${clientID}${urlPage}`
+      url = `${mainUrl}${clientID}${urlPage}`;
     }
 
     try {
-      const response = await fetch(url)
-      const data = await response.json()
-      setPhotos((oldPage) => {
-        if (query && pages === 1) {
+      const response = await fetch(url);
+      const data = await response.json();
+      setPhotos((oldPhotos) => {
+        if (query && page === 1) {
           return data.results;
         } else if (query) {
-          return [...oldPage, ...data.results]
+          return [...oldPhotos, ...data.results];
         } else {
-          return [...oldPage, ...data]
+          return [...oldPhotos, ...data];
         }
-      })
-      setImages(false)
-      setLoading(false)
+      });
+
+      setNewImages(false);
+      setLoading(false);
     } catch (error) {
-      console.log(error);
-      setImages(false)
-      setLoading(false)
+      setNewImages(false);
+
+      setLoading(false);
     }
-  }
+  };
 
   useEffect(() => {
-    fetchData()
-    // eslint-disable-next-line
-  }, [pages]);
+    fetchImages();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [page]);
 
   useEffect(() => {
     if (!mounted.current) {
@@ -59,56 +69,55 @@ function App() {
     }
     if (!newImages) return;
     if (loading) return;
-    setPages((oldPage) => oldPage + 1)
+    setPage((oldPage) => oldPage + 1);
   }, [newImages]);
 
   const event = () => {
     if (window.innerHeight + window.scrollY >= document.body.scrollHeight - 2) {
-      setImages(true)
+      setNewImages(true);
     }
-  }
+  };
 
   useEffect(() => {
-    window.addEventListener('scroll', event)
-    return () => window.removeEventListener('scroll', event)
-  }, [])
+    window.addEventListener('scroll', event);
+    return () => window.removeEventListener('scroll', event);
+  }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!query) return;
-    if (pages === 1) {
-      fetchData(1)
+    if (page === 1) {
+      fetchImages();
     }
-    setPages(1)
-  }
-
+    setPage(1);
+  };
+  
   return (
     <main>
-      <section className="search">
-        <form className="search-form">
+      <section className='search'>
+        <form className='search-form'>
           <input
-            type="text"
+            type='text'
             placeholder='search'
-            className='form-input'
             value={query}
             onChange={(e) => setQuery(e.target.value)}
+            className='form-input'
           />
-          <button className="submit-btn" onClick={handleSubmit}>
+          <button type='submit' className='submit-btn' onClick={handleSubmit}>
             <FaSearch />
           </button>
         </form>
       </section>
-      <section className="photos">
-        <div className="photos-center">
-          {photos.map((image) => {
-            console.log(image);
-            return <Photo key={image.id} {...image} />
+      <section className='photos'>
+        <div className='photos-center'>
+          {photos.map((image, index) => {
+            return <Photo key={index} {...image} />;
           })}
         </div>
+        {loading && <h2 className='loading'>Loading...</h2>}
       </section>
-      {loading && <h2 className='loading'>Loading...</h2>}
     </main>
-  )
+  );
 }
 
-export default App
+export default App;
