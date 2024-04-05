@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Photo = ({ alt_description, likes, urls: { regular }, user: { name, portfolio_url, portfolio_image: { medium } } }) => {
+const Photo = ({ alt_description, likes, urls: { regular }, user: { name, portfolio_url, profile_image: { medium } } }) => {
   return (
     <article className="photo">
       <img src={regular} alt={alt_description} />
