@@ -18,6 +18,7 @@
 16. **_Project Sixteen:_** Random Person
 17. **_Project Seventeen:_** Pagination
 18. **_Project Eighteen:_** Stock Photos
+19. **_Project Nineteen:_** Dark Mode
 
 ---
 
