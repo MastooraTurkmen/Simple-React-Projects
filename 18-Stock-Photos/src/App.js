@@ -9,18 +9,32 @@ const searchUrl = `https://api.unsplash.com/search/photos/`
 function App() {
   const [loading, setLoading] = useState(false);
   const [photos, setPhotos] = useState([]);
-  const [pages, setPages] = useState(1)
+  const [pages, setPages] = useState(0);
+  const [query, sestQuery] = useState('')
 
   const fetchData = async () => {
     setLoading(true)
-    const page = `&pages=${pages}`
+    const urlPage = `&pages=${pages}`
+    const urlQuery = `&query=${query}`
     let url;
-    url = `${mainUrl}${clientID}${page}`
+
+    if (query) {
+      url = `${mainUrl}${clientID}${urlPage}${urlQuery}`
+    } else {
+      url = `${mainUrl}${clientID}${urlPage}`
+    }
+
     try {
       const response = await fetch(url)
       const data = await response.json()
       setPhotos((oldPage) => {
-        return [...oldPage, ...data]
+        if (query && pages === 1) {
+          return data.results
+        } else if (query) {
+          return [...oldPage, ...data.results]
+        } else {
+          return [...oldPage, ...data]
+        }
       })
       setLoading(false)
       console.log(data);
@@ -48,6 +62,7 @@ function App() {
 
   const handleSubmit = (e) => {
     e.preventDefault()
+    setPages(1)
   }
 
   return (
