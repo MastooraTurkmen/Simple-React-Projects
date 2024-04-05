@@ -40,9 +40,9 @@ function App() {
       })
       setImages(false)
       setLoading(false)
-      console.log(data);
     } catch (error) {
       console.log(error);
+      setImages(false)
       setLoading(false)
     }
   }
@@ -57,6 +57,9 @@ function App() {
       mounted.current = true;
       return;
     }
+    if (!newImages) return;
+    if (loading) return;
+    setPages((oldPage) => oldPage + 1)
   }, [newImages]);
 
   const event = () => {
