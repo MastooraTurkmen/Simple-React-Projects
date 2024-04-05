@@ -10,7 +10,7 @@ function App() {
   const [loading, setLoading] = useState(false);
   const [photos, setPhotos] = useState([]);
   const [pages, setPages] = useState(0);
-  const [query, sestQuery] = useState('')
+  const [query, setQuery] = useState('')
 
   const fetchData = async () => {
     setLoading(true)
@@ -46,6 +46,7 @@ function App() {
 
   useEffect(() => {
     fetchData()
+    // eslint-disable-next-line
   }, [pages])
 
   useEffect(() => {
@@ -55,6 +56,7 @@ function App() {
           return oldPages + 1
         })
       }
+      // eslint-disable-next-line
     });
 
     return () => window.addEventListener('scroll', scrollWindow)
@@ -69,7 +71,13 @@ function App() {
     <main>
       <section className="search">
         <form className="search-form">
-          <input type="text" placeholder='search' className='form-input' />
+          <input
+            type="text"
+            placeholder='search'
+            className='form-input'
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+          />
           <button className="submit-btn" onClick={handleSubmit}>
             <FaSearch />
           </button>
