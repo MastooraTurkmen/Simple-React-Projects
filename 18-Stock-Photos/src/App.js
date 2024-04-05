@@ -21,7 +21,7 @@ function App() {
     const urlQuery = `&query=${query}`
 
     if (query) {
-      url = `${mainUrl}${clientID}${urlPage}${urlQuery}`
+      url = `${searchUrl}${clientID}${urlPage}${urlQuery}`
     } else {
       url = `${mainUrl}${clientID}${urlPage}`
     }
@@ -38,6 +38,7 @@ function App() {
           return [...oldPage, ...data]
         }
       })
+      setImages(false)
       setLoading(false)
       console.log(data);
     } catch (error) {
