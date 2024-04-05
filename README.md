@@ -17,6 +17,7 @@
 15. **_Project Fifteen:_** Markdown
 16. **_Project Sixteen:_** Random Person
 17. **_Project Seventeen:_** Pagination
+18. **_Project Eighteen:_** Stock Photos
 
 ---
 
@@ -121,7 +122,6 @@
 ## Pagination
 
 [Pagination Project](https://react-paginations-project.netlify.app/)
-
 
 ## Stock Photos
 
